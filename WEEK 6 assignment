@@ -1,0 +1,85 @@
+
+
+// Problem 5: Function to calculate sum of array elements
+int sumArray(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+// Problem 6: Function to find the maximum value in an array
+int findMax(int arr[], int size) {
+    int maxVal = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+    return maxVal;
+}
+
+// Problem 7: Function to reverse an array in place
+void reverseArray(int arr[], int size) {
+    reverse(arr, arr + size);
+}
+
+int main() {
+    // Problem 1: Declare and initialize array
+    int scores[5] = {10, 20, 30, 40, 50};
+    
+    // Problem 2: Access and print third element
+    cout << "Third element: " << scores[2] << endl;
+    
+    // Problem 3: Print array length
+    cout << "Array length: " << (sizeof(scores) / sizeof(scores[0])) << endl;
+    
+    // Problem 4: Iterate and print elements
+    cout << "Array elements:" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << scores[i] << endl;
+    }
+    
+    // Problem 5: Demonstrate sum function
+    cout << "Sum of array elements: " << sumArray(scores, 5) << endl;
+    
+    // Problem 6: Demonstrate max function
+    cout << "Maximum value in array: " << findMax(scores, 5) << endl;
+    
+    // Problem 7: Reverse array and print
+    reverseArray(scores, 5);
+    cout << "Reversed array: ";
+    for (int i = 0; i < 5; i++) {
+        cout << scores[i] << " ";
+    }
+    cout << endl;
+    
+    // Problem 8: Copy array
+    int copiedScores[5];
+    copy(begin(scores), end(scores), begin(copiedScores));
+    cout << "Copied array: ";
+    for (int i = 0; i < 5; i++) {
+        cout << copiedScores[i] << " ";
+    }
+    cout << endl;
+    
+    // Problem 9: Declare and print 2D array
+    int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cout << "Matrix elements:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    // Problem 10: Array of strings
+    string fruits[5] = {"Apple", "Banana", "Cherry", "Mango", "Grapes"};
+    cout << "Fruits list:" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << fruits[i] << endl;
+    }
+    
+    return 0;
+}
