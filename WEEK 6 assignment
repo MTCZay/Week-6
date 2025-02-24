@@ -1,6 +1,4 @@
-
-
-// Problem 5: Function to calculate sum of array elements
+// Function to calculate the sum of array elements
 int sumArray(int arr[], int size) {
     int sum = 0;
     for (int i = 0; i < size; i++) {
@@ -9,7 +7,7 @@ int sumArray(int arr[], int size) {
     return sum;
 }
 
-// Problem 6: Function to find the maximum value in an array
+// Function to find the maximum value in an array
 int findMax(int arr[], int size) {
     int maxVal = arr[0];
     for (int i = 1; i < size; i++) {
@@ -20,52 +18,67 @@ int findMax(int arr[], int size) {
     return maxVal;
 }
 
-// Problem 7: Function to reverse an array in place
+// Function to reverse an array in place
 void reverseArray(int arr[], int size) {
-    reverse(arr, arr + size);
+    int left = 0, right = size - 1;
+    while (left < right) {
+        swap(arr[left], arr[right]);
+        left++;
+        right--;
+    }
+}
+
+// Function to print an array
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 }
 
 int main() {
-    // Problem 1: Declare and initialize array
+    // 1. Declare and initialize an array
     int scores[5] = {10, 20, 30, 40, 50};
-    
-    // Problem 2: Access and print third element
+
+    // 2. Access and print the third element
     cout << "Third element: " << scores[2] << endl;
-    
-    // Problem 3: Print array length
-    cout << "Array length: " << (sizeof(scores) / sizeof(scores[0])) << endl;
-    
-    // Problem 4: Iterate and print elements
+
+    // 3. Print the length of the array
+    cout << "Array length: " << sizeof(scores) / sizeof(scores[0]) << endl;
+
+    // 4. Iterate and print each element
     cout << "Array elements:" << endl;
     for (int i = 0; i < 5; i++) {
         cout << scores[i] << endl;
     }
-    
-    // Problem 5: Demonstrate sum function
+
+    // 5. Calculate and print the sum of elements
     cout << "Sum of array elements: " << sumArray(scores, 5) << endl;
-    
-    // Problem 6: Demonstrate max function
-    cout << "Maximum value in array: " << findMax(scores, 5) << endl;
-    
-    // Problem 7: Reverse array and print
+
+    // 6. Find and print the maximum value
+    cout << "Maximum value: " << findMax(scores, 5) << endl;
+
+    // 7. Reverse the array and print it
     reverseArray(scores, 5);
     cout << "Reversed array: ";
-    for (int i = 0; i < 5; i++) {
-        cout << scores[i] << " ";
-    }
-    cout << endl;
-    
-    // Problem 8: Copy array
+    printArray(scores, 5);
+
+    // 8. Copy elements to a new array
     int copiedScores[5];
-    copy(begin(scores), end(scores), begin(copiedScores));
-    cout << "Copied array: ";
     for (int i = 0; i < 5; i++) {
-        cout << copiedScores[i] << " ";
+        copiedScores[i] = scores[i];
     }
-    cout << endl;
-    
-    // Problem 9: Declare and print 2D array
-    int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    cout << "Copied array: ";
+    printArray(copiedScores, 5);
+
+    // 9. Declare and initialize a 2D array (matrix)
+    int matrix[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    // Print the matrix
     cout << "Matrix elements:" << endl;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -73,13 +86,13 @@ int main() {
         }
         cout << endl;
     }
-    
-    // Problem 10: Array of strings
-    string fruits[5] = {"Apple", "Banana", "Cherry", "Mango", "Grapes"};
+
+    // 10. Declare and print an array of strings
+    string fruits[5] = {"Apple", "Banana", "Cherry", "Mango", "Orange"};
     cout << "Fruits list:" << endl;
     for (int i = 0; i < 5; i++) {
         cout << fruits[i] << endl;
     }
-    
+
     return 0;
 }
